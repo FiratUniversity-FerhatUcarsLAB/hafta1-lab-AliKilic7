@@ -1,4 +1,88 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541036
+AD-SOYAD:Selahattin Ali Kılıç
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+// ==========================================
+// SINAV ÇALIŞMA PLANI
+// ==========================================
+
+BAŞLA
+
+// Değişkenler
+kalanGun, konuSayisi, gunlukSaat: TAM SAYI
+toplamSaat: TAM SAYI
+i: TAM SAYI
+
+// 1) Bilgileri Al
+EKRANA YAZ "Sınava kaç gün var?: "
+KLAVYEDEN OKU kalanGun
+
+EKRANA YAZ "Günde kaç saat çalışacaksın?: "
+KLAVYEDEN OKU gunlukSaat
+
+EKRANA YAZ "Kaç konu var?: "
+KLAVYEDEN OKU konuSayisi
+
+// 2) Toplam çalışma saatini hesapla
+toplamSaat = kalanGun * gunlukSaat
+
+EKRANA YAZ "Toplam çalışabileceğin saat: ", toplamSaat
+EKRANA YAZ ""
+
+// 3) Yeterli mi kontrol et
+EĞER toplamSaat < 20 İSE:
+    EKRANA YAZ "UYARI: Çok az zaman var!"
+DEĞİLSE:
+    EKRANA YAZ "Süre yeterli görünüyor"
+KOŞUL SONU
+
+EKRANA YAZ ""
+EKRANA YAZ "=== GÜNLÜK PLAN ==="
+EKRANA YAZ ""
+
+// 4) Her gün için plan yap (FOR DÖNGÜSÜ)
+i = 1 İLE BAŞLA
+EĞER i <= kalanGun İSE TEKRARLA:
+    
+    EKRANA YAZ "GÜN ", i, ":"
+    EKRANA YAZ "  - Çalışma süresi: ", gunlukSaat, " saat"
+    
+    // Hangi günlerde ne yapılacak (IF-ELSE)
+    EĞER i MOD 3 = 0 İSE:
+        EKRANA YAZ "  - ÖZEL GÜN: Tekrar yap!"
+    DEĞİLSE:
+        EKRANA YAZ "  - Yeni konulara çalış"
+    KOŞUL SONU
+    
+    // Hafta sonu mu kontrol et
+    EĞER i MOD 7 = 0 İSE:
+        EKRANA YAZ "  - DİNLENME GÜNÜ: Kısa çalış, dinlen"
+    KOŞUL SONU
+    
+    EKRANA YAZ ""
+    
+    i = i + 1
+DÖNGÜ SONU
+
+// 5) Özet bilgi
+EKRANA YAZ "=== ÖZET ==="
+EKRANA YAZ "Toplam ", kalanGun, " gün"
+EKRANA YAZ "Her gün ", gunlukSaat, " saat"
+EKRANA YAZ "Toplam ", toplamSaat, " saat çalışacaksın"
+
+// 6) Motivasyon mesajı (İÇ İÇE IF)
+EĞER kalanGun >= 30 İSE:
+    EKRANA YAZ "Çok zamanın var, rahat çalış!"
+DEĞİLSE:
+    EĞER kalanGun >= 14 İSE:
+        EKRANA YAZ "2 haftan var, düzenli çalış!"
+    DEĞİLSE:
+        EĞER kalanGun >= 7 İSE:
+            EKRANA YAZ "1 haftan var, hızlan!"
+        DEĞİLSE:
+            EKRANA YAZ "Çok az zaman var, yoğunlaş!"
+        KOŞUL SONU
+    KOŞUL SONU
+KOŞUL SONU
+
+BİTİR
