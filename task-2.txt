@@ -1,4 +1,45 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541036
+AD-SOYAD:Selahattin Ali Kılıç
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+BAŞLA
+// ==========================================
+// SUDOKU ÇÖZME YAKLAŞIMI
+// ==========================================
+
+1. 9x9 Sudoku tahtasını oluştur (boş hücreler 0)
+
+2. Kullanıcıdan 9 satırlık giriş al:
+    her satırda 9 sayı (0 = boş hücre)
+
+3. FONKSİYON Coz(tahta):
+    - BOŞ hücre bul (satır, sütun)
+    - EĞER boş hücre yoksa → DÖNDÜR DOĞRU (çözüm tamamlandı)
+
+    - 1'den 9'a kadar döngü:
+        - EĞER GecerliMi(tahta, satır, sütun, sayi) → DOĞRU ise:
+            - tahta[satır][sütun] = sayi
+            - EĞER Coz(tahta) → DOĞRU ise:
+                - DÖNDÜR DOĞRU
+            - tahta[satır][sütun] = 0 (geri al)
+
+    - DÖNDÜR YANLIŞ (hiçbiri uymadı)
+
+4. FONKSİYON GecerliMi(tahta, satır, sütun, sayi):
+    - Aynı satırda sayi varsa → YANLIŞ
+    - Aynı sütunda sayi varsa → YANLIŞ
+    - 3x3 kutuda sayi varsa → YANLIŞ
+    - Hepsi geçiyorsa → DOĞRU
+
+5. FONKSİYON TahtayiYazdir(tahta):
+    - 9 satır ve 9 sütunu sırayla yaz
+    - 0 yerine "." yaz
+
+6. Sudoku çöz:
+    - EĞER Coz(tahta) → DOĞRU ise:
+        - EKRANA YAZ "Çözüm bulundu:"
+        - TahtayiYazdir(tahta)
+    - DEĞİLSE:
+        - EKRANA YAZ "Çözüm bulunamadı."
+
+BİTİR
