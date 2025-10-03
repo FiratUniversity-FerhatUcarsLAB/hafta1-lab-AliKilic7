@@ -2,10 +2,11 @@
 AD-SOYAD:Selahattin Ali Kılıç
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
-BAŞLA
 // ==========================================
 // SUDOKU ÇÖZME YAKLAŞIMI
 // ==========================================
+BAŞLA
+
 
 1. 9x9 Sudoku tahtasını oluştur (boş hücreler 0)
 
