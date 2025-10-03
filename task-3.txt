@@ -1,4 +1,69 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541036
+AD-SOYAD:Selahattin Ali Kılıç
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+// ==========================================
+// MÜZİK KOLEKSİYONU DÜZENLEME
+// ==========================================
+
+BAŞLA
+
+
+// 1. GEREKLİ DEĞİŞKENLER
+dosyalar: LİSTE          // Koleksiyondaki tüm müzik dosyaları
+dosya: NESNE             // Tek bir müzik dosyasını temsil eder
+klasorYolu: METİN
+secenek: METİN
+i: TAM SAYI
+
+// 2. DOSYALARI YÜKLE
+EKRANA YAZ "Müzik klasörünün yolunu giriniz: "
+KLAVYEDEN OKU klasorYolu
+
+dosyalar ← KlasordeMuzikDosyalariniBul(klasorYolu)
+
+EĞER dosyalar BOŞSA:
+    EKRANA YAZ "Hiç müzik dosyası bulunamadı."
+    BİTİR
+KOŞUL SONU
+
+// 3. KULLANICIYA DÜZENLEME SEÇENEĞİ SOR
+EKRANA YAZ "Nasıl düzenlemek istersiniz?"
+EKRANA YAZ "1 - Türüne göre"
+EKRANA YAZ "2 - Sanatçıya göre"
+EKRANA YAZ "3 - Albüme göre"
+EKRANA YAZ "4 - Eksik bilgi kontrolü"
+KLAVYEDEN OKU secenek
+
+// 4. DÜZENLEME İŞLEMİ
+EĞER secenek = "1" İSE:
+    FOR her dosya IN dosyalar:
+        tür ← dosya.tur
+        EĞER tür BOŞSA:
+            tür ← "Bilinmeyen"
+        KOŞUL SONU
+        KlasoreTasi(dosya, klasorYolu + "/" + tür)
+    DÖNGÜ SONU
+
+ELSE EĞER secenek = "2" İSE:
+    FOR her dosya IN dosyalar:
+        sanatci ← dosya.sanatci
+        EĞER sanatci BOŞSA:
+            sanatci ← "Bilinmeyen"
+        KOŞUL SONU
+        KlasoreTasi(dosya, klasorYolu + "/" + sanatci)
+    DÖNGÜ SONU
+
+ELSE EĞER secenek = "3" İSE:
+    FOR her dosya IN dosyalar:
+        album ← dosya.album
+        EĞER album BOŞSA:
+            album ← "Bilinmeyen"
+        KOŞUL SONU
+        KlasoreTasi(dosya, klasorYolu + "/" + album)
+    DÖNGÜ SONU
+
+ELSE EĞER secenek = "4" İSE:
+    EKRANA YAZ "Eksik bilgileri olan dosyalar:"
+    FOR her dosya IN dosyalar:
+       
